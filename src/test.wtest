@@ -1,17 +1,33 @@
 import capos.*
 
 test "encontrar artefactos" {
-	
+	rolando.encontrarObjeto(espada)
+	rolando.encontrarObjeto(libro)
+	rolando.encontrarObjeto(collar)
+	assert.equals(2,rolando.cantidadObjetosEncima())
+	assert.equals(#{espada,libro},rolando.objetosEncima())
 }
 
 test "castillo" {
-	
+	rolando.encontrarObjeto(espada)
+	castillo.almacenar(rolando)
+	assert.equals(1,castillo.cantidadObjetosEncima())
+	assert.equals(#{espada},castillo.almacenado())
 }
 
 test "posesiones" {
-	
+	rolando.encontrarObjeto(espada)
+	rolando.encontrarObjeto(libro)
+	castillo.almacenar(rolando)
+	rolando.encontrarObjeto(collar)
+	assert.equals(#{espada,libro,collar},rolando.objetosTotales())
 }
 
 test "historia" {
-	
+	rolando.encontrarObjeto(espada)
+	rolando.encontrarObjeto(libro)
+	rolando.encontrarObjeto(armadura)
+	castillo.almacenar(rolando)
+	rolando.encontrarObjeto(collar)
+	assert.equals([espada,libro,armadura,collar],rolando.historial())
 }
